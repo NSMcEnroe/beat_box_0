@@ -15,5 +15,13 @@ describe LinkedList do
             expect(list.head).to eq(nil)
         end
     end
+    describe '#doop' do
+        it 'returns the sound back, defaulting as the head of the linked list' do
+            list = LinkedList.new
+            list.append("doop")
+            expect(list.head).to eq("doop")
+        end
+    end
+
 end
 
