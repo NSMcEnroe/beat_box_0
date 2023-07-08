@@ -42,6 +42,12 @@ describe LinkedList do
             list.append("doop")
             expect(list.count).to eq(1)
         end
+        it "returns the amount of multiple nodes in the linked list" do
+            list = LinkedList.new
+            list.append("doop")
+            list.append("deep")
+            expect(list.count).to eq(2)
+        end
     end
     describe '#to_string' do
         it "returns the list of nodes as strings" do
