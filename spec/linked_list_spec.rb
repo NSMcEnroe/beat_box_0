@@ -50,5 +50,12 @@ describe LinkedList do
             expect(list.to_string).to eq("doop")
         end
     end
+    describe '#head' do
+        it "returns the node located at the head" do
+            list = LinkedList.new
+            list.append("doop")
+            expect(list.head).to be_an_instance_of(Node)
+        end
+    end
 end
 
