@@ -65,6 +65,14 @@ describe LinkedList do
             expect(list).to be_an_instance_of(LinkedList)
         end
     end
+    describe '#head.next_node' do
+        it "returns the node after the head node" do
+            list = LinkedList.new
+            list.append("doop")
+            list.append("deep")
+            expect(list.head.next_node).to be_an_instance_of(Node)
+        end
+    end
 
 
 end
