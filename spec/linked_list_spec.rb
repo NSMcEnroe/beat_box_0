@@ -57,5 +57,15 @@ describe LinkedList do
             expect(list.head).to be_an_instance_of(Node)
         end
     end
+    describe '#append' do
+        it "returns a list when append is used multiple times" do
+            list = LinkedList.new
+            list.append("doop")
+            list.append("deep")
+            expect(list).to be_an_instance_of(LinkedList)
+        end
+    end
+
+
 end
 
