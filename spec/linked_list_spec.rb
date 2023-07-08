@@ -55,6 +55,12 @@ describe LinkedList do
             list.append("doop")
             expect(list.to_string).to eq("doop")
         end
+        it "returns multiple nodes as a single string" do
+            list = LinkedList.new
+            list.append("doop")
+            list.append("deep")
+            expect(list.to_string).to eq("doop deep")
+        end
     end
     describe '#head' do
         it "returns the node located at the head" do
