@@ -15,13 +15,33 @@ describe LinkedList do
             expect(list.head).to eq(nil)
         end
     end
-    describe '#doop' do
-        it 'returns the sound back, defaulting as the head of the linked list' do
+    describe '#list' do
+        it 'returns an instance of a list' do
             list = LinkedList.new
             list.append("doop")
-            expect(list.head).to eq("doop")
+            expect(list).to be_an_instance_of(LinkedList)
         end
     end
-
+    describe '#list.head.data' do
+        it "returns the argument" do
+            list = LinkedList.new
+            list.append("doop")
+            expect(list.head.data).to eq("doop")
+        end
+    end
+    describe '#list.head.next_node' do
+        it "returns nil, since there is only one node present" do
+            list = LinkedList.new
+            list.append("doop")
+            expect(list.head.next_node).to eq(nil)
+        end
+    end
+    describe '#count' do
+        it "returns the amount of nodes in the linked list" do
+            list = LinkedList.new
+            list.append("doop")
+            expect(list.count).to eq(1)
+        end
+    end
 end
 
