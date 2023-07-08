@@ -43,5 +43,12 @@ describe LinkedList do
             expect(list.count).to eq(1)
         end
     end
+    describe '#to_string' do
+        it "returns the list of nodes as strings" do
+            list = LinkedList.new
+            list.append("doop")
+            expect(list.to_string).to eq("doop")
+        end
+    end
 end
 
