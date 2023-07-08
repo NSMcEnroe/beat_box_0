@@ -23,6 +23,16 @@ class LinkedList
         end
         count
     end
+    def to_string
+        annoying_array = []
+        current_node = @head
+        while current_node
+            annoying_array << current_node.data
+            current_node = current_node.next_node
+        end
+        annoying_array.join(" ")
+    end
+
 
 
 
