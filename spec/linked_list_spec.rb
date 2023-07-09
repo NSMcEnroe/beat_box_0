@@ -107,7 +107,16 @@ describe LinkedList do
             list.prepend("dop")
             expect(list.count).to eq(3)
         end
-
+    end
+    describe '#insert' do
+        it "returns the proper Linked List" do
+        list = LinkedList.new
+        list.append("plop")
+        list.append("suu")
+        list.prepend("dop")
+        list.insert(1, "woo")
+        expect(list.to_string).to eq("dop woo plop suu")
+        end
     end
 
 
