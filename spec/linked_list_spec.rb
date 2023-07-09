@@ -93,13 +93,21 @@ describe LinkedList do
         end
     end
     describe '#prepend' do 
-        it "returns the Linked List with the prepend argument as the first node" do
+        it "returns the appropriate string with the prepend argument as the first node" do
             list = LinkedList.new
             list.append("plop")
             list.append("suu")
             list.prepend("dop")
             expect(list.to_string).to eq("dop plop suu")
         end
+        it "returns the appropriate count after using method" do
+            list = LinkedList.new
+            list.append("plop")
+            list.append("suu")
+            list.prepend("dop")
+            expect(list.count).to eq(3)
+        end
+
     end
 
 
