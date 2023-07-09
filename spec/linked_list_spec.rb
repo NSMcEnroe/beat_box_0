@@ -127,6 +127,7 @@ describe LinkedList do
             list.append("shu")
             list.append("blop")
             expect(list.find(2,1)).to eq("shi")
+            expect(list.find(1,3)).to eq("woo shi shu")
         end
     end
             
