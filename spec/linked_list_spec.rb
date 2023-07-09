@@ -61,6 +61,13 @@ describe LinkedList do
             list.append("deep")
             expect(list.to_string).to eq("doop deep")
         end
+        it "returns a second instance of multiple nodes" do
+            list = LinkedList.new
+            list.append("plop")
+            list.append("suu")
+            expect(list.to_string).to eq("plop suu")
+        end
+
     end
     describe '#head' do
         it "returns the node located at the head" do
@@ -85,6 +92,16 @@ describe LinkedList do
             expect(list.head.next_node).to be_an_instance_of(Node)
         end
     end
+    describe '#prepend' do 
+        it "returns the Linked List with the prepend argument as the first node" do
+            list = LinkedList.new
+            list.append("plop")
+            list.append("suu")
+            list.prepend("dop")
+            expect(list.to_string).to eq("dop plop suu")
+        end
+    end
+
 
 
 end
