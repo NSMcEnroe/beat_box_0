@@ -110,15 +110,26 @@ describe LinkedList do
     end
     describe '#insert' do
         it "returns the proper Linked List" do
-        list = LinkedList.new
-        list.append("plop")
-        list.append("suu")
-        list.prepend("dop")
-        list.insert(1, "woo")
-        expect(list.to_string).to eq("dop woo plop suu")
+            list = LinkedList.new
+            list.append("plop")
+            list.append("suu")
+            list.prepend("dop")
+            list.insert(1, "woo")
+            expect(list.to_string).to eq("dop woo plop suu")
         end
     end
-
+    describe '#find' do
+        it "returns the appropriate string" do
+            list = LinkedList.new
+            list.append("deep")
+            list.append("woo")
+            list.append("shi")
+            list.append("shu")
+            list.append("blop")
+            expect(list.find(2,1)).to eq("shi")
+        end
+    end
+            
 
 
 end
