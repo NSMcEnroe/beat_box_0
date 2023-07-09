@@ -24,12 +24,27 @@ class LinkedList
     def insert(position, data)
         new_node = Node.new(data)
         current_node = @head
-        (position-1).times do
+        (position - 1).times do
             current_node = current_node.next_node
         end
         new_node.next_node = current_node.next_node
         current_node.next_node = new_node
     end
+    def find(index, elements)
+        find_array = []
+        current_node = @head
+        index.times do
+            current_node = current_node.next_node
+        end
+        find_array << current_node.data
+        (elements - 1).times do
+            current_node = current_node.next_node
+            find_array << current_node.data
+        end
+        find_array.join(" ")
+    end
+
+
     def count
         count = 0
         current_node = @head
