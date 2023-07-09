@@ -51,9 +51,6 @@ class LinkedList
             end
             false
     end
-
-
-
     def count
         count = 0
         current_node = @head
@@ -72,6 +69,16 @@ class LinkedList
         end
         annoying_array.join(" ")
     end
+    def pop
+        current_node = @head
+        while current_node.next_node.next_node != nil
+            current_node = current_node.next_node
+        end
+        removed_node = current_node.next_node
+        current_node.next_node = current_node.next_node.next_node
+        removed_node.data
+    end
+
 
 
 
