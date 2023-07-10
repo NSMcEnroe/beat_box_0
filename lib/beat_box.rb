@@ -3,4 +3,13 @@ class BeatBox
     def initialize
         @list = LinkedList.new
     end
+    def append(string)
+        noise_string = string
+        noises = noise_string.split
+        noises.each do |noise|
+            @list.append(noise)
+        end
+    end
+
+
 end
