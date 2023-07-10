@@ -10,6 +10,9 @@ class BeatBox
             @list.append(noise)
         end
     end
+    def count
+        @list.count
+    end
 
 
 end
