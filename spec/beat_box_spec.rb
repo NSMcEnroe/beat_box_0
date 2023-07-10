@@ -27,7 +27,11 @@ describe BeatBox do
             expect(bb.count).to eq(6)
         end
     end
-
-    #Test for play function?
-
+    describe '#play' do
+        it "returns the node through the speak command in the console" do 
+            bb = BeatBox.new
+            bb.append("deep doo ditt woo hoo shu")
+            expect(bb.play).to be_an_instance_of(String)
+        end
+    end
 end
