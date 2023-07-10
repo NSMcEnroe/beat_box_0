@@ -11,4 +11,13 @@ describe BeatBox do
             expect(bb.list.head).to eq(nil)
         end
     end
+    describe '#append' do
+        it "returns the string as individual nodes in the correct order" do
+            bb = BeatBox.new
+            bb.append("deep doo ditt")
+            expect(bb.list.head.data).to eq("deep")
+            expect(bb.list.head.next_node.data).to eq("doo")
+        end
+    end
+
 end
