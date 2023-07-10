@@ -28,4 +28,6 @@ describe BeatBox do
         end
     end
 
+    #Test for play function?
+
 end
