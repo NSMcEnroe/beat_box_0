@@ -8,32 +8,41 @@ describe LinkedList do
             list = LinkedList.new
             expect(list).to be_an_instance_of(LinkedList)
         end
+        it 'returns an instance of a list with a single node' do
+            list = LinkedList.new
+            list.append("doop")
+            expect(list).to be_an_instance_of(LinkedList)
+        end
     end
     describe '#head' do 
         it 'returns a nil when empty' do
             list = LinkedList.new
             expect(list.head).to eq(nil)
         end
-    end
-    describe '#list' do
-        it 'returns an instance of a list' do
+        it "returns the node located at the head" do
             list = LinkedList.new
             list.append("doop")
-            expect(list).to be_an_instance_of(LinkedList)
+            expect(list.head).to be_an_instance_of(Node)
         end
     end
-    describe '#list.head.data' do
-        it "returns the argument" do
+    describe '#data' do
+        it "returns the argument of the current node" do
             list = LinkedList.new
             list.append("doop")
             expect(list.head.data).to eq("doop")
         end
     end
-    describe '#list.head.next_node' do
+    describe '#next_node' do
         it "returns nil, since there is only one node present" do
             list = LinkedList.new
             list.append("doop")
             expect(list.head.next_node).to eq(nil)
+        end
+        it "returns the node after the head node" do
+            list = LinkedList.new
+            list.append("doop")
+            list.append("deep")
+            expect(list.head.next_node).to be_an_instance_of(Node)
         end
     end
     describe '#count' do
@@ -47,6 +56,13 @@ describe LinkedList do
             list.append("doop")
             list.append("deep")
             expect(list.count).to eq(2)
+        end
+        it "returns the appropriate count after using prepend method" do
+            list = LinkedList.new
+            list.append("plop")
+            list.append("suu")
+            list.prepend("dop")
+            expect(list.count).to eq(3)
         end
     end
     describe '#to_string' do
@@ -67,14 +83,6 @@ describe LinkedList do
             list.append("suu")
             expect(list.to_string).to eq("plop suu")
         end
-
-    end
-    describe '#head' do
-        it "returns the node located at the head" do
-            list = LinkedList.new
-            list.append("doop")
-            expect(list.head).to be_an_instance_of(Node)
-        end
     end
     describe '#append' do
         it "returns a list when append is used multiple times" do
@@ -82,14 +90,6 @@ describe LinkedList do
             list.append("doop")
             list.append("deep")
             expect(list).to be_an_instance_of(LinkedList)
-        end
-    end
-    describe '#head.next_node' do
-        it "returns the node after the head node" do
-            list = LinkedList.new
-            list.append("doop")
-            list.append("deep")
-            expect(list.head.next_node).to be_an_instance_of(Node)
         end
     end
     describe '#prepend' do 
@@ -100,12 +100,10 @@ describe LinkedList do
             list.prepend("dop")
             expect(list.to_string).to eq("dop plop suu")
         end
-        it "returns the appropriate count after using method" do
+        it "returns the correct string if prepend is the the only method used" do
             list = LinkedList.new
-            list.append("plop")
-            list.append("suu")
             list.prepend("dop")
-            expect(list.count).to eq(3)
+            expect(list.to_string).to eq("dop")
         end
     end
     describe '#insert' do
@@ -116,6 +114,26 @@ describe LinkedList do
             list.prepend("dop")
             list.insert(1, "woo")
             expect(list.to_string).to eq("dop woo plop suu")
+        end
+        it "returns a statement if the Linked List is not long enough" do
+            list = LinkedList.new
+            list.append("plop")
+            list.append("suu")
+            list.prepend("dop")
+            expect(list.to_string).to eq("dop plop suu")
+            expect(list.insert(10, "woo")).to eq("You can not enter this word here.")
+        end
+        it "returns a statement if the Linked List has no nodes" do
+            list= LinkedList.new
+            expect(list.insert(10, "woo")).to eq("You can not enter this word here.")
+        end 
+        it "inserts the node into the zeroth index when asked" do
+            list = LinkedList.new
+            list.append("plop")
+            list.append("suu")
+            list.prepend("dop")
+            list.insert(0, "woo")
+            expect(list.to_string).to eq("woo dop plop suu")
         end
     end
     describe '#find' do
@@ -128,6 +146,16 @@ describe LinkedList do
             list.append("blop")
             expect(list.find(2,1)).to eq("shi")
             expect(list.find(1,3)).to eq("woo shi shu")
+        end
+        it "returns an error message if there are not enough nodes" do
+            list = LinkedList.new
+            list.append("deep")
+            list.append("woo")
+            list.append("shi")
+            list.append("shu")
+            list.append("blop")
+            expect(list.find(10,1)).to eq("Please try again.")
+            expect(list.find(1,10)).to eq("Please try again.")
         end
     end
     describe '#includes?' do
@@ -154,9 +182,10 @@ describe LinkedList do
             expect(list.pop).to eq("shu")
             expect(list.to_string).to eq("deep woo shi")
         end
+        it "returns a message when the list is empty" do
+            list = LinkedList.new
+            expect(list.pop).to eq("There is nothing left to remove!")
+        end
     end
-
-
-
 end
 

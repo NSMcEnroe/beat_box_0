@@ -14,12 +14,11 @@ class BeatBox
         @list.count
     end
     def play
-        beats = @list.to_string
-        `say -r 500 -v Boing #{beats}`
+        if @list.count.zero?
+            "You need to add some noises silly goose."
+        else
+            beats = @list.to_string
+            `say -r 500 -v Boing #{beats}`
+        end
     end
-
-
-
-
-
 end

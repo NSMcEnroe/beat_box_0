@@ -23,24 +23,36 @@ class LinkedList
     end
     def insert(position, data)
         new_node = Node.new(data)
-        current_node = @head
-        (position - 1).times do
-            current_node = current_node.next_node
-        end
-        new_node.next_node = current_node.next_node
-        current_node.next_node = new_node
+            if position.zero?
+                new_node.next_node = @head
+                @head = new_node
+            else
+                current_node = @head
+                return "You can not enter this word here." if current_node.nil?
+                (position - 1).times do
+                    current_node = current_node.next_node
+                    break if current_node.nil?
+                end
+                return "You can not enter this word here." if current_node.nil?
+                new_node.next_node = current_node.next_node
+                current_node.next_node = new_node
+            end
     end
     def find(index, elements)
         find_array = []
         current_node = @head
         index.times do
             current_node = current_node.next_node
+            break if current_node.nil?
         end
+        return "Please try again." if current_node.nil?
         find_array << current_node.data
         (elements - 1).times do
             current_node = current_node.next_node
+            break if current_node.nil?
             find_array << current_node.data
         end
+        return "Please try again." if current_node.nil?
         find_array.join(" ")
     end
     def includes?(data)
@@ -71,16 +83,15 @@ class LinkedList
     end
     def pop
         current_node = @head
+        if current_node.nil?
+            "There is nothing left to remove!"
+        else
         while current_node.next_node.next_node != nil
             current_node = current_node.next_node
         end
         removed_node = current_node.next_node
         current_node.next_node = current_node.next_node.next_node
         removed_node.data
+        end
     end
-
-
-
-
-
 end

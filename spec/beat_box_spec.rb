@@ -27,7 +27,31 @@ describe BeatBox do
             expect(bb.count).to eq(6)
         end
     end
+    describe '#play' do
+        it "returns the node through the speak command in the console" do 
+            bb = BeatBox.new
+            bb.append("deep doo ditt woo hoo shu")
+            expect(bb.play).to be_an_instance_of(String)
+        end
+        it "returns a different node through the speak command in the console" do
+            bb = BeatBox.new
+            bb.append("boots an cats")
+            bb.append("boots an cats")
+            bb.append("boots an cats")
+            bb.append("boots an cats")
+            bb.append("boots an cats")
+            bb.append("boots an cats")
+            bb.append("boots an cats")
+            bb.append("boots an cats")
+            bb.append("boots an cats")
+            bb.append("boots an cats")
+            bb.append("ya ya ya ya ya")
+            expect(bb.play).to be_an_instance_of(String)
+        end
 
-    #Test for play function?
-
+        it "returns an error message if there are no nodes" do
+            bb = BeatBox.new
+            expect(bb.play).to eq("You need to add some noises silly goose.")
+        end
+    end
 end
