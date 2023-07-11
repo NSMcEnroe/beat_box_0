@@ -154,7 +154,6 @@ describe LinkedList do
             list.append("shi")
             list.append("shu")
             list.append("blop")
-            require 'pry';binding.pry
             expect(list.find(10,1)).to eq("Please try again.")
             expect(list.find(1,10)).to eq("Please try again.")
         end
@@ -182,6 +181,10 @@ describe LinkedList do
             expect(list.pop).to eq("blop")
             expect(list.pop).to eq("shu")
             expect(list.to_string).to eq("deep woo shi")
+        end
+        it "returns a message when the list is empty" do
+            list = LinkedList.new
+            expect(list.pop).to eq("There is nothing left to remove!")
         end
     end
 
