@@ -24,6 +24,7 @@ class LinkedList
     def insert(position, data)
         new_node = Node.new(data)
         current_node = @head
+        return "You can not enter this word here." if current_node.nil?
         (position - 1).times do
             current_node = current_node.next_node
             break if current_node.nil?
