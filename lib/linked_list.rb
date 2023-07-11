@@ -26,7 +26,9 @@ class LinkedList
         current_node = @head
         (position - 1).times do
             current_node = current_node.next_node
+            break if current_node.nil?
         end
+        return "You can not enter this word here." if current_node.nil?
         new_node.next_node = current_node.next_node
         current_node.next_node = new_node
     end
@@ -78,9 +80,4 @@ class LinkedList
         current_node.next_node = current_node.next_node.next_node
         removed_node.data
     end
-
-
-
-
-
 end
