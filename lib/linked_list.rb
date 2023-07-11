@@ -43,12 +43,16 @@ class LinkedList
         current_node = @head
         index.times do
             current_node = current_node.next_node
+            break if current_node.nil?
         end
+        return "Please try again." if current_node.nil?
         find_array << current_node.data
         (elements - 1).times do
             current_node = current_node.next_node
+            break if current_node.nil?
             find_array << current_node.data
         end
+        return "Please try again." if current_node.nil?
         find_array.join(" ")
     end
     def includes?(data)
