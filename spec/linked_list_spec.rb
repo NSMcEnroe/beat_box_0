@@ -57,6 +57,13 @@ describe LinkedList do
             list.append("deep")
             expect(list.count).to eq(2)
         end
+        it "returns the appropriate count after using prepend method" do
+            list = LinkedList.new
+            list.append("plop")
+            list.append("suu")
+            list.prepend("dop")
+            expect(list.count).to eq(3)
+        end
     end
     describe '#to_string' do
         it "returns the list of nodes as strings" do
@@ -93,12 +100,10 @@ describe LinkedList do
             list.prepend("dop")
             expect(list.to_string).to eq("dop plop suu")
         end
-        it "returns the appropriate count after using method" do
+        it "returns the correct string if prepend is the the only method used" do
             list = LinkedList.new
-            list.append("plop")
-            list.append("suu")
             list.prepend("dop")
-            expect(list.count).to eq(3)
+            expect(list.to_string).to eq("dop")
         end
     end
     describe '#insert' do
@@ -110,6 +115,14 @@ describe LinkedList do
             list.insert(1, "woo")
             expect(list.to_string).to eq("dop woo plop suu")
         end
+        it "returns a statement if the node doesn't exist" do
+            list = LinkedList.new
+            list.append("plop")
+            list.append("suu")
+            list.prepend("dop")
+            expect(list.insert(10, "woo")).to eq("You can not enter this word here.")
+        end
+            
     end
     describe '#find' do
         it "returns the appropriate string" do
