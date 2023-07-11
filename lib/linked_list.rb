@@ -83,11 +83,15 @@ class LinkedList
     end
     def pop
         current_node = @head
+        if current_node.nil?
+            "There is nothing left to remove!"
+        else
         while current_node.next_node.next_node != nil
             current_node = current_node.next_node
         end
         removed_node = current_node.next_node
         current_node.next_node = current_node.next_node.next_node
         removed_node.data
+        end
     end
 end
