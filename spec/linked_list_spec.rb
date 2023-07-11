@@ -128,7 +128,7 @@ describe LinkedList do
             expect(list.insert(10, "woo")).to eq("You can not enter this word here.")
         end 
         it "inserts the node into the zeroth index when asked" do
-        list = LinkedList.new
+            list = LinkedList.new
             list.append("plop")
             list.append("suu")
             list.prepend("dop")
@@ -187,8 +187,5 @@ describe LinkedList do
             expect(list.pop).to eq("There is nothing left to remove!")
         end
     end
-
-
-
 end
 
