@@ -115,14 +115,17 @@ describe LinkedList do
             list.insert(1, "woo")
             expect(list.to_string).to eq("dop woo plop suu")
         end
-        it "returns a statement if the node doesn't exist" do
+        it "returns a statement if the Linked List is not long enough" do
             list = LinkedList.new
             list.append("plop")
             list.append("suu")
             list.prepend("dop")
             expect(list.insert(10, "woo")).to eq("You can not enter this word here.")
         end
-            
+        it "returns a statement if the Linked List has no nodes" do
+            list= LinkedList.new
+            expect(list.insert(10, "woo")).to eq("You can not enter this word here.")
+        end 
     end
     describe '#find' do
         it "returns the appropriate string" do
