@@ -147,6 +147,17 @@ describe LinkedList do
             expect(list.find(2,1)).to eq("shi")
             expect(list.find(1,3)).to eq("woo shi shu")
         end
+        it "returns an error message if there are not enough nodes" do
+            list = LinkedList.new
+            list.append("deep")
+            list.append("woo")
+            list.append("shi")
+            list.append("shu")
+            list.append("blop")
+            require 'pry';binding.pry
+            expect(list.find(10,1)).to eq("Please try again.")
+            expect(list.find(1,10)).to eq("Please try again.")
+        end
     end
     describe '#includes?' do
         it "returns the correct boolean when searching for a node" do
