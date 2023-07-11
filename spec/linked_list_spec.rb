@@ -120,12 +120,21 @@ describe LinkedList do
             list.append("plop")
             list.append("suu")
             list.prepend("dop")
+            expect(list.to_string).to eq("dop plop suu")
             expect(list.insert(10, "woo")).to eq("You can not enter this word here.")
         end
         it "returns a statement if the Linked List has no nodes" do
             list= LinkedList.new
             expect(list.insert(10, "woo")).to eq("You can not enter this word here.")
         end 
+        it "inserts the node into the zeroth index when asked" do
+        list = LinkedList.new
+            list.append("plop")
+            list.append("suu")
+            list.prepend("dop")
+            list.insert(0, "woo")
+            expect(list.to_string).to eq("woo dop plop suu")
+        end
     end
     describe '#find' do
         it "returns the appropriate string" do
